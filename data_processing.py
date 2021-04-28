@@ -88,12 +88,12 @@ for csv in raw_list:
     # read in the data
     data = pd.read_csv(csv)
 
-    # Add logical check to see if the data is about the correct length. 
-    print(f"The file is {csv} - this is an engine speed of {rpm}.")
-    if (len(data) > 1600) or len(data) < 500:
-        print(f"Data is {len(data)} long. Potentially something has gone wrong here.")
-    else:
-        print(f"Data is {len(data)} long.")
+    # Add logical check to see if the data is about the correct length. Uncomment for printing.
+    # print(f"The file is {csv} - this is an engine speed of {rpm}.")
+    # if (len(data) > 1600) or len(data) < 500:
+    #     print(f"Data is {len(data)} long. Potentially something has gone wrong here.")
+    # else:
+    #     print(f"Data is {len(data)} long.")
 
     # rename the columns into something much more comprehensible. This is only required if the data comes from GT. 
     data.rename(columns={
@@ -131,5 +131,5 @@ null_data = all_data[all_data.isnull().any(axis=1)]
 print(len(null_data))
 
 # Save data to parquet. This is much more storage efficient than a csv. Pyarrow or similar will need to be installed as a package though. 
-all_data.to_parquet("./data/all_data_dim_num.parquet")
+all_data.to_parquet("./data/all_data.parquet")
 
