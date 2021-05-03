@@ -22,4 +22,6 @@ The scripts should be run in the following order:
 3. Models: `linear_regression.py`, `random_forest.py`, `_xgboost.py`, `neural_network.py`
 4. `importance_plotter.py`
 
+The code used during development of the project can be found in the `project development` folder. These are less clean. 
+
 For further questions please email Joe de Souza. 
