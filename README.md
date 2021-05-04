@@ -15,6 +15,7 @@ This study was limited to using simulation data. The next stage is to carry out 
 The scripts shown in the main folder are the ones cleaned, and commented ready for use and recreation. Provided that all correct packages are installed and folders are created the scripts can be run from the command line using ```py script_name.py```. However, it is recommended that the code be run in sections in a Jupyter notebook. This is to allow for each output to be viewed and checked if it is working correctly. Further, the permutation importance is a manual entry from the user after having run the model scripts. 
 
 A list of the packages required can be found in the ```requirements.txt```. For pip users, they can all be installed by running `py -m pip install -r requirements.txt`.
+If you haven't got pip installed, instructions on how to install it can be found [here](https://pip.pypa.io/en/stable/installing/).
 
 The scripts should be run in the following order:
 1. `data_processing.py`
