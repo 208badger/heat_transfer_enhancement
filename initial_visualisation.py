@@ -16,6 +16,8 @@ data = data.drop(columns=[
     "time", "crank_angle", "rpm"])
 data = data.rename(columns={"steady_flow_htc_approx":"dittus-boelter_analogy"})
 
+# --------------------------------------------- Correlation matrix ----------------------------------------
+
 # Let's plot the correlation of the data set using a heatmap from seaborn library.
 
 corr_data = data.corr()
@@ -25,12 +27,15 @@ sns.heatmap(corr_data, annot=True)
 plt.tight_layout()
 plt.savefig("./output_graphs/collinearity.png")
 
+# ----------------------------------------------- Comparison graphs ----------------------------------------
+
 # For plotting the comparison graphs. 
 # Most of what is below is just fiddling to ensure the graphs are plotted on one another. 
 # The parameters for users to modify are the 'x_axis' to 'units' inputs that edits what the graph plots
 # and the titles and labels on the graphs. 
 
 data = pd.read_parquet("./data/all_data.parquet")
+plot_data = data[data["rpm"]== 800]
 
 x_axis = "crank_angle"
 param_1 = "UHTE"
@@ -41,7 +46,7 @@ units_1 = ""
 units_2 = " (kg/ms)"
 color_1 = "#1F9168" 
 color_2 = "#002060"
-x_data = data[x_axis]
+x_data = plot_data[x_axis]
 label_size = 20
 title_size = 30
 linewidth = 3
@@ -52,8 +57,8 @@ ax2 = fig.add_axes()
 
 ax2 = ax1.twinx()
 
-lns1 = ax1.plot(x_data, data[param_1], color = color_1, label=label_1, linewidth=linewidth)
-lns2 = ax2.plot(x_data, data[param_2], color = color_2, label = label_2,linewidth=linewidth)
+lns1 = ax1.plot(x_data, plot_data[param_1], color = color_1, label=label_1, linewidth=linewidth)
+lns2 = ax2.plot(x_data, plot_data[param_2], color = color_2, label = label_2,linewidth=linewidth)
 # Solution for having two legends
 leg = lns1 + lns2
 labs = [l.get_label() for l in leg]
