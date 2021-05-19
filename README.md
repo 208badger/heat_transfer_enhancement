@@ -25,4 +25,8 @@ The scripts should be run in the following order:
 
 The code used during development of the project can be found in the `project development` folder. These are less clean. 
 
+### Editing the scripts.
+For small edits or bug fixes, use the `patches` branch and then merge into the master branch. (`git checkout patches` to switch branches).
+For larger changes, to methodology etc. use a separate branch dedicated to developing the changes. (`git checkout -b branch_name` to create a new branch and switch to it).
+
 For further questions please email Joe de Souza. 
